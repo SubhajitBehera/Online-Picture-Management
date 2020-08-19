@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block common %}
+{% include 'user.html' %}<br><br><br>
+    <form action="{% url 'image_upload' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table align="center">
+        <tr>
+            <th>Upload Photos:
+                <input type="file" placeholder="Upload Image" required name="s1" ></th>
+        </tr>
+        <tr>
+            <th><input type="text" placeholder="Add Caption" name="s2"></th>
+        </tr>
+        <tr>
+            <th><button type="submit">Upload</button></th>
+        </tr>
+    </table>
+    </form>
+
+    {% for x in messages %}
+        <h3 style="color: red;font-size: 40px;font-family: 'Segoe MDL2 Assets';text-align: center">
+            {{ x }}
+        </h3>
+    {% endfor %}
+
+{% endblock %}

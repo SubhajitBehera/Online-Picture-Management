@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block common %}
+
+    <br><br>
+
+<form action="{% url 'login' %}" method="post">
+{% csrf_token %}
+<table align="center" style="background-color: silver">
+
+        <tr>
+            <th colspan="2" style="text-align: center"><h2 style="background-color: red;color: black">User Login</h2></th>
+        </tr>
+    <tr>
+        <th rowspan="4">
+            <img src="{% static 'image/login.png' %}" width="150" height="150">
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="text" placeholder="Username" required name="t1">
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="password" placeholder="Password" required name="t2">
+        </th>
+    </tr>
+    <tr>
+        <th style="text-align: center">
+            <button type="submit" class="btn btn-danger">
+                Login
+            </button>
+        </th>
+    </tr>
+
+    <tr>
+    <th colspan="4" style="font-size: 30px">
+        <a href="{% url 'usersinn_up' %}"> Sing In</a></th></tr>
+    </table>
+    </form>
+
+
+{% endblock %}

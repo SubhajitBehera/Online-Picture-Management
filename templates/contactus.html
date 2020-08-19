@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block common %}
+    <head>
+    <style>
+        #new{
+            width: 400px;
+            height: 300px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 150px;
+        }
+    </style>
+    </head>
+
+    {% include 'user.html' %}<br>
+    <br>
+    <br><br><br>
+    <h2 style="text-align: center;background-color: yellow;color: #000009">Contact Us:1800 4524 5662</h2>
+    <h2 style="text-align: center;background-color: yellow;color: #000009">Email:photo.management20@gmail.com</h2>
+    <img id="new" src="{% static 'image/phone.png' %}">
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{% block common %}
+    {% include 'user.html' %}<br><br><br><br><br>
+
+    <body id="fs-toggle">
+<table align="center" border="2" >
+    <tr bgcolor="#5f9ea0" style="color: #0f0dff">
+        <th>Photos</th>
+        <th width="100">Caption</th>
+        <th width="100">Videos</th>
+        <th width="100">Text</th>
+        <th width="50">Edit</th>
+        <th width="100">Delete</th>
+
+    </tr>
+    {% for x in data %}
+        <tr style="color: #000009">
+            <th width="100">{{ x.photo }}</th>
+            <th width="100">{{ x.captions }}</th>
+            <th width="100">{{ x.videos }}</th>
+            <th width="150">{{ x.text }}</th>
+            <th>Edit</th>
+            <th><a href="{% url 'delete/pk={ x.pk }}'%}">Delete</a></th>
+
+        </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}
