@@ -16,7 +16,7 @@ class UserModel(models.Model):
     gender=models.CharField(max_length=10)
 
 class PhotosModel(models.Model):
-    #username=models.ForeignKey(UserModel,on_delete=models.CASCADE,primary_key=True)
+    username=models.ForeignKey(UserModel,on_delete=models.CASCADE,primary_key=True)
     photo = models.FileField(upload_to='photos/')
     captions = models.TextField()
     videos=models.FileField(upload_to='videos/',null=True,verbose_name="")

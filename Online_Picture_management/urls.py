@@ -23,6 +23,7 @@ from opm import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('',views.home,name='main'),
     path('userlogin/',views.userlogin,name='userlogin'),
     path('usersign_up/',views.usersignup,name='usersinn_up'),
@@ -37,7 +38,17 @@ urlpatterns = [
     path('uploadvideo/',views.uploadvideo,name='uploadvideo'),
     path('video_upload/',views.video_upload,name='video_upload'),
     path('videos/',views.viewall,name='viewall'),
-    path('delete/<int:pk>',views.delete,name='delete')
- ]
+    path('delete/<int:id>',views.delete,name='delete'),
+    path('edit/<int:id>',views.edit,name='edit'),
+    path("edit_all/",views.edit_all,name='edit_all'),
+
+    path('adminlogin/', views.adminlogin, name='adminlogin'),
+    path('register/',views.register,name='register'),
+    path('log/',views.log,name='log'),
+    path('view_all_user/',views.view_all_user,name='view_all_user'),
+    path('delete_user/<int:id>',views.delete_user,name='delete_user'),
+    path('view_photo_video/',views.view_photo_video,name='view')
+
+]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

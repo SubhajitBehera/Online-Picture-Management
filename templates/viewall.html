@@ -19,8 +19,8 @@
             <th width="100">{{ x.captions }}</th>
             <th width="100">{{ x.videos }}</th>
             <th width="150">{{ x.text }}</th>
-            <th>Edit</th>
-            <th><a href="{% url 'delete/pk={ x.pk }}'%}">Delete</a></th>
+            <th><a href="{% url 'edit/' %}id={{ x.id }}">Edit</a></th>
+            <th><a href="{% url 'delete/'%}id={{ x.id }}">Delete</a></th>
 
         </tr>
     {% endfor %}

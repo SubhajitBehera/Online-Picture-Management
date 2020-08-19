@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from opm.models import UserModel,PhotosModel
+from opm.models import UserModel,PhotosModel,AdminModel
 from django.db.utils import IntegrityError
 from django.contrib import messages
 
@@ -85,6 +85,52 @@ def viewall(request):
     return render(request,'viewall.html',{"data":PhotosModel.objects.all()})
 
 
-def delete(request,pk):
-    PhotosModel.objects.get(pk=pk).delete()
+def delete(request,id):
+    PhotosModel.objects.get(id=id).delete()
     return redirect('viewall')
+
+
+def edit(request,id):
+    image =PhotosModel.objects.get(id=id)
+    return render(request,'edit.html',{"edit":image})
+
+
+def edit_all(request):
+    e_photo=request.POST.get("i1")
+    e_caption=request.POST.get("i2")
+    e_video=request.POST.get("i3")
+    e_text=request.POST.get("i4")
+    PhotosModel(photo=e_photo,captions=e_caption,videos=e_video,text=e_text).save()
+
+    return redirect('edit')
+
+
+def adminlogin(request):
+    return render(request,'adminregister.html')
+
+
+def register(request):
+    admin=request.POST.get('a1')
+    a_email=request.POST.get('a2')
+    cnumber=request.POST.get('a3')
+    password=request.POST.get('a4')
+    AdminModel(admin_name=admin,email=a_email,cno=cnumber,password=password).save()
+    messages.success(request,'Admin Register Succesfully')
+    return redirect('log')
+
+
+def log(request):
+    return render(request,'admin_open.html')
+
+
+def view_all_user(request):
+    return render(request,'view_all_user.html',{"data":UserModel.objects.all()})
+
+
+def delete_user(request,id):
+        PhotosModel.objects.get(id=id).delete()
+        return redirect('view_all_user')
+
+
+def view_photo_video(request):
+    return render(request,"viewphoto_video.html",{"data":PhotosModel.objects.all()})

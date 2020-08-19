@@ -1,0 +1,21 @@
+<html>
+<body>
+<table>
+    <tr>
+        <th>Photo</th>
+        <th>Caption</th>
+        <th>Video</th>
+        <th>Text</th>
+        <th>Delete</th>
+    </tr>
+    {% for x in data %}
+        <tr>
+           <th>{{ x.photo }}</th>
+           <th>{{ x.captions }}</th>
+           <th>{{ x.videos }}</th>
+           <th>{{ x.text }}</th>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

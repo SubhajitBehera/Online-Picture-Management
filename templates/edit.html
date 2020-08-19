@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% block common %}
+    {% include 'user.html' %}<br><br><br><br><br>
+    <form action="{% url 'edit_all' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center" border="2">
+        <tr><th>
+            <input type="file" placeholder="image" required value="{{ x.photo }}" name="i1">
+        </th></tr>
+        <tr><th>
+            <input type="text" placeholder="caption" required value="{{ x.captions }}" name="i2">
+        </th></tr>
+        <tr><th>
+            <input type="file" placeholder="videos"  required value="{{ x.videos }}" name="i3">
+        </th></tr>
+        <tr><th>
+            <input type="text" placeholder="text" required value="{{ x.text }}" name="i4">
+        </th></tr>
+        <tr>
+            <th><button type="submit">Edit</button></th>
+        </tr>
+    </table>
+    </form>
+{% endblock %}
