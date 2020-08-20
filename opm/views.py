@@ -62,7 +62,7 @@ def uploadphoto(request):
 
 
 def image_upload(request):
-    photo=request.POST.get("s1")
+    photo=request.FILES["s1"]
     caption=request.POST.get("s2")
     PhotosModel(photo=photo,captions=caption).save()
     messages.success(request,'Photo uploaded')
@@ -74,7 +74,7 @@ def uploadvideo(request):
 
 
 def video_upload(request):
-    video=request.POST.get("v1")
+    video=request.FILES["v1"]
     text=request.POST.get("v2")
     PhotosModel(videos=video,text=text).save()
     messages.success(request,'Video is uploaded')
@@ -96,9 +96,9 @@ def edit(request,id):
 
 
 def edit_all(request):
-    e_photo=request.POST.get("i1")
+    e_photo=request.FILES["i1"]
     e_caption=request.POST.get("i2")
-    e_video=request.POST.get("i3")
+    e_video=request.FILES["i3"]
     e_text=request.POST.get("i4")
     PhotosModel(photo=e_photo,captions=e_caption,videos=e_video,text=e_text).save()
 
